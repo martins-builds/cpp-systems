@@ -1,0 +1,8 @@
+# 1. Ignore absolutely everything in the project folder
+*
+
+# 2. Allow Git to track only these specific source and configuration files
+!*.cpp
+!*.h
+!*.hpp
+!.gitignore
