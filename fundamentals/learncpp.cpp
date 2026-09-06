@@ -3,6 +3,10 @@
 
 using namespace std;
 
+int add(int a, int b){
+    return a+b;
+}
+
 int main(){
     int age = 25;
     double price = 19.99;
