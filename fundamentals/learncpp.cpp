@@ -15,8 +15,8 @@ int main(){
     bool isActive = true;
     std::string name = "John";
 
-    cout << "Alive" << " ";
+    cout << "Alive" << endl;
     int result = add(age, year);
-    cout << result << " ";
+    cout << result << endl;
     return 0;
 }
