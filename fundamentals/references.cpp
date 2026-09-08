@@ -1,7 +1,8 @@
 #include <iostream>
 
-void work(int x){
-
+void work(int &x){
+    //saving memory for large data and can be used to change
+    x++;
 }
 int main(){
     int a = 5;
@@ -10,5 +11,6 @@ int main(){
 
     std :: cout << b+5 << std :: endl;
     work(c);
+    std :: cout << c << std :: endl;
     return 0;
 }
