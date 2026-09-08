@@ -6,7 +6,7 @@ void work(int &x){
     x++;
 }
 
-void do_more(std::vector<int> data){
+void do_more(std::vector<int> &data){
     data[0] = 10000;
 }
 
@@ -22,6 +22,6 @@ int main(){
     std :: cout << data[0] << std :: endl;
     do_more(data);
     std :: cout << data[0] << std :: endl;
-    
+
     return 0;
 }
