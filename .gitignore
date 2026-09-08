@@ -1,8 +1,11 @@
-# 1. Ignore absolutely everything in the project folder
-*
+# Object files
+*.o
 
-# 2. Allow Git to track only these specific source and configuration files
-!*.cpp
-!*.h
-!*.hpp
+# macOS Executables (compiled binaries with no extension)
+# Note: This matches the project root. If your executable is in a subfolder, 
+# you can use a wildcard or target the specific name (e.g., /my_program).
+*
+!*/
+!*.*
 !.gitignore
+!.git
