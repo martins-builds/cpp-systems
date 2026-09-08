@@ -1,5 +1,7 @@
 # Object files
 *.o
+*.vscode/
+
 
 # macOS Executables (compiled binaries with no extension)
 # Note: This matches the project root. If your executable is in a subfolder, 
