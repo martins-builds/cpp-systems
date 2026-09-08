@@ -4,6 +4,7 @@ void work(int &x){
     //saving memory for large data and can be used to change
     x++;
 }
+
 int main(){
     int a = 5;
     int c = 10;
