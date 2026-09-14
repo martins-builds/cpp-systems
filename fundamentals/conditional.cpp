@@ -13,6 +13,5 @@ int main(void){
         steps++;
         std::cout << steps << std::endl;
     }
-    
     return 0;
 }
