@@ -11,7 +11,7 @@ int main(void){
             c0 = (3 * c0) + 1;
         std::cout << c0 << std::endl;
         steps++;
-        std::cout << steps << std::endl;
     }
+    std::cout << steps << std::endl;
     return 0;
 }
