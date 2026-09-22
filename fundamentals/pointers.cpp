@@ -19,13 +19,13 @@ int main(){
     int vector[] = { 3, -5, 7, 10, -4, 14, 5, 2, -13 };
 	int n = sizeof(vector) / sizeof(vector[0]);
 
-	int *p = vector;
+	int *ptr = vector;
 	int min = *p;
-	p++;
+	ptr++; //go next value
 	for(int i = 1; i < n; i++) {
-		if(*p < min)
-			min = *p;
-		p++;
+		if(*ptr < min)
+			min = *ptr;
+		ptr++;
 	}
 	cout << min << endl;
     return 0;
