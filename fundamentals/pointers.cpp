@@ -15,6 +15,18 @@ int main(){
     cout << sizeof(double) << " bytes for doubles" << endl;
     cout << sizeof(bool) << " byte for bools" << endl;
     cout << sizeof(int * ) << " bytes for pointers" << endl;
-    
+
+    int vector[] = { 3, -5, 7, 10, -4, 14, 5, 2, -13 };
+	int n = sizeof(vector) / sizeof(vector[0]);
+
+	int *p = vector;
+	int min = *p;
+	p++;
+	for(int i = 1; i < n; i++) {
+		if(*p < min)
+			min = *p;
+		p++;
+	}
+	cout << min << endl;
     return 0;
 }
