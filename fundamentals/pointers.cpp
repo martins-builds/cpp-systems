@@ -2,6 +2,6 @@
 using namespace std;
 
 int main(){
-    int *p = NULL;
+    int i, *p = &i;
     return 0;
 }
