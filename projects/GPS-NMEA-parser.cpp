@@ -34,16 +34,16 @@ double GPSFix::getLongitude() const{
     return longitude;
 }
 int GPSFix::getHours() const{
-
+    return hours;
 }
 int GPSFix::getMinutes() const{
-
+    return minutes;
 }
 int GPSFix::getSeconds() const{
-    
+    return seconds;
 }
 bool GPSFix::isValid() const{
-
+    return valid;
 }
 #include <iostream>
 using namespace std;
