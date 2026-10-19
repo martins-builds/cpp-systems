@@ -1,20 +1,12 @@
-class GPS-NMEA-parser
-{
+class GPSFix{
 private:
-    /* data */
-public:
-    GPS-NMEA-parser(/* args */);
-    ~GPS-NMEA-parser();
+    double latitude;    // Decimal degrees
+    double longitude;   // Decimal degrees
+    int hours;          // UTC time: hours (0-23)
+    int minutes;        // UTC time: minutes (0-59)
+    int seconds;        // UTC time: seconds (0-59)
+    bool valid;         // Status flag: true if fix is valid, false otherwise
 };
-
-GPS-NMEA-parser::GPS-NMEA-parser(/* args */)
-{
-}
-
-GPS-NMEA-parser::~GPS-NMEA-parser()
-{
-}
-
 #include <iostream>
 using namespace std;
 
