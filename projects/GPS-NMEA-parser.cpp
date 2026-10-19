@@ -30,6 +30,21 @@ double GPSFix::getLatitude() const{
     return latitude;
 }
 
+double GPSFix::getLongitude() const{
+    return longitude;
+}
+int GPSFix::getHours() const{
+
+}
+int GPSFix::getMinutes() const{
+
+}
+int GPSFix::getSeconds() const{
+    
+}
+bool GPSFix::isValid() const{
+
+}
 #include <iostream>
 using namespace std;
 
