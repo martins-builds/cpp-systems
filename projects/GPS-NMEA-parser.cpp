@@ -9,8 +9,12 @@ private:
 
 public:
     GPSFix();
-
     double getLatitude() const;
+    double getLongitude() const;
+    int getHours() const;
+    int getMinutes() const;
+    int getSeconds() const;
+    bool isValid() const;
 };
 
 GPSFix::GPSFix(){
@@ -20,6 +24,10 @@ GPSFix::GPSFix(){
     minutes = 0;
     seconds = 0;
     valid = 0;
+}
+
+double GPSFix::getLatitude() const{
+    return latitude;
 }
 
 #include <iostream>
