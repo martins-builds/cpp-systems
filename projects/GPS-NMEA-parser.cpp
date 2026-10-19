@@ -7,6 +7,7 @@ private:
     int seconds;        // UTC time: seconds (0-59)
     bool valid;         // Status flag: true if fix is valid, false otherwise
 };
+
 #include <iostream>
 using namespace std;
 
