@@ -53,6 +53,15 @@ bool GPSFix::isValid() const{
     return valid;
 }
 bool GPSFix::parse(const std::string& sentence){
+    std::stringstream ss(sentence);
+    std::string field;
+    std::vector<std::string> fields;
+
+    while(std::getline(ss, field, ',')){
+        fields.push_back(field);
+    }
+
+    return false;
 
 }
 
