@@ -1,3 +1,9 @@
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <vector>
+using namespace std;
+
 class GPSFix{
 private:
     double latitude;    // Decimal degrees
@@ -15,6 +21,7 @@ public:
     int getMinutes() const;
     int getSeconds() const;
     bool isValid() const;
+    bool parse(const std::string& sentence);
 };
 
 GPSFix::GPSFix(){
@@ -45,8 +52,9 @@ int GPSFix::getSeconds() const{
 bool GPSFix::isValid() const{
     return valid;
 }
-#include <iostream>
-using namespace std;
+bool GPSFix::parse(const std::string& sentence){
+
+}
 
 int main(){
 
