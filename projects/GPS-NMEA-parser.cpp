@@ -66,7 +66,7 @@ bool GPSFix::parse(const std::string& sentence){
     }
 
     valid = true;
-    
+
     hours = std::stoi(fields[1].substr(0, 2));
     minutes = std::stoi(fields[1].substr(2, 2));
     seconds = std::stoi(fields[1].substr(4, 2));
@@ -90,5 +90,49 @@ bool GPSFix::parse(const std::string& sentence){
 }
 
 int main(){
+    GPSFix gps;
 
+    // Test Case 1: A perfectly valid $GPRMC sentence
+    // Time: 12:35:19 UTC | Valid (A) | Lat: 4807.038 N | Lon: 01131.000 E
+    std::string valid_sentence = "$GPRMC,123519,A,4807.038,N,01131.000,E,022.4,084.4,230394,003.1,W*6A";
+    
+    std::cout << "--- Testing Valid Sentence ---" << std::endl;
+    if (gps.parse(valid_sentence)) {
+        std::cout << "Parse Successful!" << std::endl;
+        std::cout << "Time: " << gps.getHours() << ":" << gps.getMinutes() << ":" << gps.getSeconds() << " UTC" << std::endl;
+        std::cout << "Latitude: " << gps.getLatitude() << "°" << std::endl;
+        std::cout << "Longitude: " << gps.getLongitude() << "°" << std::endl;
+        std::cout << "Is Valid Flag: " << (gps.isValid() ? "True" : "False") << std::endl;
+    } else {
+        std::cout << "Parse Failed (Unexpected)!" << std::endl;
+    }
+
+    std::cout << "\n----------------------------------------\n" << std::endl;
+
+    // Test Case 2: An invalid sentence (Status is 'V' for Void/Receiver Warning)
+    // Your short-circuit check 'fields[2] != "A"' should catch this and return false
+    std::string invalid_status_sentence = "$GPRMC,123519,V,4807.038,N,01131.000,E,022.4,084.4,230394,003.1,W*6A";
+    
+    std::cout << "--- Testing Invalid Status ('V') Sentence ---" << std::endl;
+    if (gps.parse(invalid_status_sentence)) {
+        std::cout << "Parse Successful (Unexpected behavior)!" << std::endl;
+    } else {
+        std::cout << "Parse Failed as expected (Sentence is marked Void/Invalid)." << std::endl;
+    }
+
+    std::cout << "\n----------------------------------------\n" << std::endl;
+
+    // Test Case 3: A truncated/malformed sentence
+    // Your short-circuit check 'fields.size() < 7' will catch this and exit instantly,
+    // protecting your code from an out-of-bounds crash on missing indices!
+    std::string broken_sentence = "$GPRMC,123519,A,4807.038,N";
+    
+    std::cout << "--- Testing Truncated Sentence ---" << std::endl;
+    if (gps.parse(broken_sentence)) {
+        std::cout << "Parse Successful (Unexpected behavior)!" << std::endl;
+    } else {
+        std::cout << "Parse Failed as expected (Sentence was safely rejected due to small size)." << std::endl;
+    }
+
+    return 0;
 }
