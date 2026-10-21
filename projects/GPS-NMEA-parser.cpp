@@ -65,26 +65,28 @@ bool GPSFix::parse(const std::string& sentence){
         return false;
     }
 
+    valid = true;
+    
     hours = std::stoi(fields[1].substr(0, 2));
     minutes = std::stoi(fields[1].substr(2, 2));
     seconds = std::stoi(fields[1].substr(4, 2));
 
     double lat_deg = std::stod(fields[3].substr(0, 2));
     double lat_min = std::stod(fields[3].substr(2));
-    double final_latitude = lat_deg + (lat_min / 60.0);
+    latitude = lat_deg + (lat_min / 60.0);
 
     double lon_deg = std::stod(fields[5].substr(0, 3));
     double lon_min = std::stod(fields[5].substr(3));
-    double final_longitude = lon_deg + (lon_min / 60.0);
+    longitude = lon_deg + (lon_min / 60.0);
 
     if (fields[4] == "S"){
-        final_latitude = -final_latitude;
+        latitude = -latitude;
     }
     if (fields[6] == "W"){
-        final_longitude = -final_longitude;
+        longitude = -longitude;
     }
 
-    return false;
+    return true;
 }
 
 int main(){
