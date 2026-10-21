@@ -66,8 +66,8 @@ bool GPSFix::parse(const std::string& sentence){
     }
 
     hours = std::stoi(fields[1].substr(0, 2));
-    minutes = std::stoi(fields[1].substr(2, 4));
-    seconds = std::stoi(fields[1].substr(4, 6));
+    minutes = std::stoi(fields[1].substr(2, 2));
+    seconds = std::stoi(fields[1].substr(4, 2));
 }
 
 int main(){
