@@ -61,7 +61,9 @@ bool GPSFix::parse(const std::string& sentence){
         fields.push_back(field);
     }
 
-    return false;
+    if(fields.size() < 7 || fields[0] != "$GPRMC" || fields[2] != "A"){
+        return false;
+    }
 
 }
 
