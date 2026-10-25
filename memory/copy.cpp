@@ -29,8 +29,9 @@ int main() {
     IntArray a(4);
     a[0] = 42;
 
-    IntArray b = a;     // copy a into b
+    IntArray b(2);       // b already exists, with its own 2-element array
+    b = a;               // copy ASSIGNMENT, not construction
     b[0] = 99;
 
-    std::cout << "a[0] = " << a[0] << "\n";
+    std::cout << "a[0] = " << a[0] << ", b size = " << b.size() << "\n";
 }
