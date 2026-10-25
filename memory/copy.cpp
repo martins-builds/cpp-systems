@@ -13,13 +13,13 @@ public:
     size_t size() const { return size_; }
 
     IntArray(const IntArray& other)
-        : size_(other.size_), data_(new int[other.size_]) {
+        : size_(other.size_), data_(new int[other.size_]) { //always need the copy constructor and copy assignment too
         for (size_t i = 0; i < size_; ++i) {
             data_[i] = other.data_[i];
         }
         std::cout << "copy\n";
     }
-    
+
 private:
     size_t size_;
     int* data_;
