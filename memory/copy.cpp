@@ -12,6 +12,14 @@ public:
     int& operator[](size_t i) { return data_[i]; }
     size_t size() const { return size_; }
 
+    IntArray(const IntArray& other)
+        : size_(other.size_), data_(new int[other.size_]) {
+        for (size_t i = 0; i < size_; ++i) {
+            data_[i] = other.data_[i];
+        }
+        std::cout << "copy\n";
+    }
+    
 private:
     size_t size_;
     int* data_;
