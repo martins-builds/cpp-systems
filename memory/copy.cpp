@@ -20,6 +20,20 @@ public:
         std::cout << "copy\n";
     }
 
+    IntArray& operator=(const IntArray& other) {
+        if (this == &other) {              // guard against a = a
+            return *this;
+        }
+        int* new_data = new int[other.size_];     // allocate first
+        for (size_t i = 0; i < other.size_; ++i) {
+            new_data[i] = other.data_[i];
+        }
+        delete[] data_;                           // then free the old array
+        data_ = new_data;
+        size_ = other.size_;
+        return *this;
+    }
+
 private:
     size_t size_;
     int* data_;
