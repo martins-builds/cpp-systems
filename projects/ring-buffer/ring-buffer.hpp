@@ -8,10 +8,12 @@ class RingBuffer {
 
 public:
     bool push(const T& value) {
-        // TODO 1: if full, return false
-        // TODO 2: store value at buf_[tail_]
-        // TODO 3: advance tail_ with wraparound
-        // TODO 4: increase count_
+        if (full()) {
+            return false;
+        }
+        buf_[tail_] = value;
+        tail_ = (tail_ + 1) % N;
+        ++count_;
         return true;
     }
 
