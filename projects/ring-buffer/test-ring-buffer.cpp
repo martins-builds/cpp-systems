@@ -2,9 +2,16 @@
 #include <iostream>
 #include "ring-buffer.hpp"
 
+struct Sample {
+    int t = 0;
+    int ax = 0;
+};
+
 int main() {
     RingBuffer<int, 3> rb;
     int x = 0;
+
+    RingBuffer<Sample, 4>;
 
     assert(rb.empty());
     assert(rb.push(1));
