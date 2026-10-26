@@ -18,10 +18,12 @@ public:
     }
 
     bool pop(T& out) {
-        // TODO 1: if empty, return false
-        // TODO 2: copy buf_[head_] into out
-        // TODO 3: advance head_ with wraparound
-        // TODO 4: decrease count_
+        if (empty()){
+            return false;
+        }
+        out = buf_[head_];
+        head_ = (head_ + 1) % N;
+        --count_;
         return true;
     }
 
