@@ -38,7 +38,6 @@ int main() {
         std::cout << "made p\n";
         auto q = std::move(p);           // ownership moves to q
         std::cout << (p ? "p owns it" : "p is empty") << "\n";
-        // auto r = q;                   // try un-commenting this one
     }
     std::cout << "after scope\n";
 }
