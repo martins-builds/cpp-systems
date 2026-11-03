@@ -67,10 +67,9 @@ Do not compile with `-DNDEBUG`: it removes `assert`, and the tests would pass wi
 - push until full, push rejected when full
 - pop in first-in, first-out order
 - one wraparound (push after a pop)
+- many wraparounds: 3000 values through a 5-slot buffer, order checked every time
 - pop rejected when empty
 - a struct type (`Sample`) stored and read back intact
-
-Planned: a longer loop that wraps around the array many times.
 
 ## Results
 
@@ -88,6 +87,6 @@ Planned: a longer loop that wraps around the array many times.
 
 ## What I would change
 
-- Add a longer wraparound test and a test with a non-trivial type
+- Add a test with a non-trivial type (for example one that owns heap memory)
 - Add an overwrite-oldest variant
 - Make it safe for one producer and one consumer, for an interrupt-to-main-loop handoff on the MCU
