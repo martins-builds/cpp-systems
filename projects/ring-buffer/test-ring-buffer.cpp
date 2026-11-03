@@ -73,5 +73,8 @@ int main() {
     assert(rb.empty());
     assert(!rb.pop(x));             // empty: rejected
 
+    test_sample_struct();
+    test_many_wraparounds();
+
     std::cout << "all tests passed\n";
 }
