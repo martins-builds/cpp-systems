@@ -7,6 +7,24 @@ struct Sample {
     int ax = 0;
 };
 
+struct Sample {
+    unsigned int t;
+    short ax, ay, az;
+};
+
+void test_sample_struct() {
+    RingBuffer<Sample, 4> rb;
+    assert(rb.push(Sample{100, 1, 2, 3}));
+    assert(rb.push(Sample{110, 4, 5, 6}));
+
+    Sample s{};
+    assert(rb.pop(s));
+    assert(s.t == 100 && s.ax == 1 && s.ay == 2 && s.az == 3);
+    assert(rb.pop(s));
+    assert(s.t == 110 && s.ax == 4 && s.ay == 5 && s.az == 6);
+    assert(rb.empty());
+}
+
 int main() {
     RingBuffer<int, 3> rb;
     int x = 0;
