@@ -3,14 +3,10 @@
 #include "ring-buffer.hpp"
 
 struct Sample {
-    int t = 0;
-    int ax = 0;
-};
-
-struct Sample {
     unsigned int t;
     short ax, ay, az;
 };
+
 
 void test_sample_struct() {
     RingBuffer<Sample, 4> rb;
@@ -48,9 +44,9 @@ int main() {
     RingBuffer<Sample, 4> sb;
     Sample s;
 
-    assert(sb.push(Sample{100, 10}));
-    assert(sb.push(Sample{110, 12}));
-    assert(sb.push(Sample{120, 9}));
+   assert(sb.push(Sample{100, 10, 0, 0}));
+   assert(sb.push(Sample{110, 12, 0, 0}));
+   assert(sb.push(Sample{120, 9, 0, 0}));
     assert(sb.size() == 3);
 
     assert(sb.pop(s) && s.t == 100 && s.ax == 10);
