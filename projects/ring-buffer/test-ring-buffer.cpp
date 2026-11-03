@@ -25,6 +25,22 @@ void test_sample_struct() {
     assert(rb.empty());
 }
 
+void test_many_wraparounds() {
+    RingBuffer<int, 5> rb;
+    int next_in = 0, next_out = 0;
+
+    for (int round = 0; round < 1000; ++round) {
+        for (int i = 0; i < 3; ++i) assert(rb.push(next_in++));
+        for (int i = 0; i < 3; ++i) {
+            int x = -1;
+            assert(rb.pop(x));
+            assert(x == next_out++);
+        }
+        assert(rb.empty());
+    }
+    assert(next_in == 3000 && next_out == 3000);
+}
+
 int main() {
     RingBuffer<int, 3> rb;
     int x = 0;
