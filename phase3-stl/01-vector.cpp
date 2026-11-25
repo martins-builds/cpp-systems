@@ -30,5 +30,10 @@ int main() {
     std::cout << "size " << data.size() << " capacity " << data.capacity() << "\n";
 
     std::cout << "last t " << data.back().t << "\n";
+
+    Sample& first = data[0];
+    for (int i = 0; i < 20; i++) data.push_back({0, 0, 0, 0});
+    std::cout << "first ax " << first.ax << "\n";
+
     return 0;
 }
